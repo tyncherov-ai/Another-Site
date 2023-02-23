@@ -1,140 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700");
 
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-  background-color: #F5F8FF;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  opacity: 1;
-  visibility: visible;
-}
-
-@-webkit-keyframes ripple {
-  from {
-    opacity: 1;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-
-  to {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3);
-  }
-}
-
-@keyframes ripple {
-  from {
-    opacity: 1;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-
-  to {
-    opacity: 0;
-    -webkit-transform: scale(3);
-            transform: scale(3);
-  }
-}
-
-.preloader.done {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.preloader__loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.preloader__loader span {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin: 0 5px;
-  position: relative;
-}
-
-.preloader__loader span::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  border-radius: 50%;
-  z-index: -1;
-  -webkit-animation: ripple 1.5s ease-out infinite;
-          animation: ripple 1.5s ease-out infinite;
-}
-
-.preloader__loader span:first-child {
-  background-color: #b1c2ff;
-}
-
-.preloader__loader span:first-child::before {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-
-.preloader__loader span:nth-child(2) {
-  background-color: #97adfc;
-  -webkit-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
-.preloader__loader span:nth-child(2)::before {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-.preloader__loader span:nth-child(3) {
-  background-color: #93aaff;
-  -webkit-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-          transform: scale(0.8);
-}
-
-.preloader__loader span:nth-child(3)::before {
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
-}
-
-.preloader__loader span:nth-child(4) {
-  background-color: #7b97fc;
-  -webkit-transform: scale(0.7);
-      -ms-transform: scale(0.7);
-          transform: scale(0.7);
-}
-
-.preloader__loader span:nth-child(4)::before {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-
-.preloader__loader span:last-child {
-  background-color: #5E81FE;
-  -webkit-transform: scale(0.6);
-      -ms-transform: scale(0.6);
-          transform: scale(0.6);
-}
-
-.preloader__loader span:last-child::before {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
 @font-face {
   font-family: icons;
   font-display: swap;
@@ -2621,6 +2486,163 @@ body._lock {
 
 .swiper-button-lock {
   display: none !important;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: #F5F8FF;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+@-webkit-keyframes ripple {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+}
+
+.preloader.done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader__loader span {
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 0.3125rem;
+  position: relative;
+}
+
+@supports (width: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem )) {
+  .preloader__loader span {
+    width: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem );
+  }
+}
+
+@supports not (width: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem )) {
+  .preloader__loader span {
+    width: calc(1.5625rem + 0.625 * (100vw - 20rem) / 59.375);
+  }
+}
+
+@supports (height: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem )) {
+  .preloader__loader span {
+    height: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem );
+  }
+}
+
+@supports not (height: clamp( 1.5625rem , 1.3519736842rem  +  1.0526315789vw , 2.1875rem )) {
+  .preloader__loader span {
+    height: calc(1.5625rem + 0.625 * (100vw - 20rem) / 59.375);
+  }
+}
+
+.preloader__loader span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  z-index: -1;
+  -webkit-animation: ripple 1.5s ease-out infinite;
+          animation: ripple 1.5s ease-out infinite;
+}
+
+.preloader__loader span:first-child {
+  background-color: #b1c2ff;
+}
+
+.preloader__loader span:first-child::before {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.preloader__loader span:nth-child(2) {
+  background-color: #97adfc;
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.preloader__loader span:nth-child(2)::before {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.preloader__loader span:nth-child(3) {
+  background-color: #93aaff;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.preloader__loader span:nth-child(3)::before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.preloader__loader span:nth-child(4) {
+  background-color: #7b97fc;
+  -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.preloader__loader span:nth-child(4)::before {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.preloader__loader span:last-child {
+  background-color: #5E81FE;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
+}
+
+.preloader__loader span:last-child::before {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 @media (min-width: 29.99875em) {
